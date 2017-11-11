@@ -29,7 +29,7 @@
 #    https://github.com/alive-corpse/docker-ttrss
 #
 
-FROM alpine:3.4
+FROM alpine:latest
 MAINTAINER Evgeniy Shumilov <evgeniy.shumilov@gmail.com>
 
 # Environment
@@ -44,8 +44,8 @@ ENV SELF_URL_PATH http://localhost
 ADD entry.sh /usr/local/bin
 
 RUN apk update && apk add nginx php5-fpm php5-json php5-gd php5-mysqli php5-pdo_mysql php5-dom php5-curl php5-mcrypt php5-pcntl php5-posix curl && \
-    rm -rf /var/www/* && curl https://tt-rss.org/gitlab/fox/tt-rss/repository/archive.tar.gz?ref=master -o /tmp/ttrss.tgz && \
-    tar xvzf /tmp/ttrss.tgz -C /tmp && mv /tmp/tt-rss.git/* /var/www && rm -rf /tmp/* && cp /var/www/config.php-dist /var/www/config.php && \
+    rm -rf /var/www/* && curl 'https://git.tt-rss.org/git/tt-rss/archive/master.tar.gz' -o /tmp/ttrss.tgz && \
+    tar xvzf /tmp/ttrss.tgz -C /tmp && mv /tmp/tt-rss/* /var/www && rm -rf /tmp/* && cp /var/www/config.php-dist /var/www/config.php && \
     chown -R nobody:nobody /var/www/* && chmod +x /usr/local/bin/entry.sh && chmod +x /var/www/update_daemon2.php && \
     mkdir /tmp/client_body && mkdir /tmp/fastcgi_temp && chown nobody:nobody /tmp/* 
 
