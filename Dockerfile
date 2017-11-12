@@ -47,10 +47,11 @@ RUN apk update && apk add nginx php5-fpm php5-json php5-gd php5-mysqli php5-pdo_
     rm -rf /var/www/* && curl 'https://git.tt-rss.org/git/tt-rss/archive/master.tar.gz' -o /tmp/ttrss.tgz && \
     tar xvzf /tmp/ttrss.tgz -C /tmp && mv /tmp/tt-rss/* /var/www && rm -rf /tmp/* && cp /var/www/config.php-dist /var/www/config.php && \
     chown -R nobody:nobody /var/www/* && chmod +x /usr/local/bin/entry.sh && chmod +x /var/www/update_daemon2.php && \
-    mkdir /tmp/client_body && mkdir /tmp/fastcgi_temp && chown nobody:nobody /tmp/* 
+    mkdir /tmp/client_body && mkdir /tmp/fastcgi_temp && chown nobody:nobody /tmp/*; ln -s /usr/bin/php5 /usr/bin/php; ln -s /usr/bin/php-fpm5 /usr/bin/php-fpm
 
 ADD nginx.conf /etc/nginx
 ADD configure-db.php /var/www
+ADD mysqltest.php /var/www
 
 WORKDIR /var/www
 
