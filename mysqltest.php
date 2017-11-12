@@ -2,7 +2,6 @@
 include 'config.php';
 $con = mysqli_connect(DB_HOST, DB_USER, DB_PASS);
 while (!$con) {
-    echo 'Checking mysql connection.../n';
     $con = mysqli_connect(DB_HOST, DB_USER, DB_PASS);
     sleep(1);
 }
