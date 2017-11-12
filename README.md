@@ -12,7 +12,7 @@ while feeling as close to a real desktop application as possible.
 
 ## Main changes
 
-I made it with default settings for using with mysql and changed debian image to alpine 3.4. Also I wrote some initialisation scripts, made some fixes in nginx configs to make in working in alpine and resolved all needed dependencies. At the moment docker image takes 57.19 MB of disk size. It's much less than with debian image.
+I made it with default settings for using with mysql and changed debian image to latest alpine. Also I wrote some initialisation scripts, made some fixes in nginx configs to make in working in alpine and resolved all needed dependencies. At the moment docker image takes 57.19 MB of disk size. It's much less than with debian image.
 
 ## Installation and parameters
 
